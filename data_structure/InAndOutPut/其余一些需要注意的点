@@ -1,0 +1,9 @@
+//养成写这个debug的习惯，因为infile无法打开不会报错，导致cin的结果乱七八糟
+// if (!infile) {
+//         cerr << "无法打开文件！" << endl;
+//         return 1;
+//     }
+
+
+// 忽略当前输入中的换行符
+// infile.ignore(numeric_limits<streamsize>::max(), '\n');
