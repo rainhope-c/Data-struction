@@ -156,7 +156,7 @@ BTNode* CreatBTree11(vector<char>pres,int i,vector<char>ins,int j,int n)
 if(n<=0) return NULL; 
 char d =pres[i];  //取根节点的值
 BTNode*b=new BTNode(d);  //创建根结点
-int p=0;
+int p=j;
 while(ins[p]!=d) p++;   //循环在中序序列中找到根结点的位置
 int k=p-j;  //左子树的结点个数k
 b->lchild=CreatBTree11(pres,i+1,ins,j,k);  //递归构造左子树
