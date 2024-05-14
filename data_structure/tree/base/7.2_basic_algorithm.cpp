@@ -120,7 +120,7 @@ public:
 		if (b == NULL)  //空树的高度是0
 			return 0;
 		else
-			return max(Heightl(b->lchild), Heightl(b->rchild) + 1);
+			return max(Heightl(b->lchild), Heightl(b->rchild)) + 1;
 	}
 	//销毁二叉树
 	void DestoryBTrer(BTNode* b)
