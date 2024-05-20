@@ -176,17 +176,47 @@ public:
         } 
         r->next=NULL;  //将尾结点的next域设置为NULL
     }
-
-
-
-
-
-
-
-
-
-
-
 };
 
 
+//整体逆置链表
+template <typename T>
+void Reverse(LinkList<T>&L)  //算法一 用头插法的思想
+{
+    LinkNode <T>* p=L.head->next,*q;  //p结点指向首结点
+    L.head->next=NULL;  //将L设置为一个空表
+    while(p!=NULL)
+    {
+        q=p->next;  //q临时保存p结点的后继结点
+        p->next=L.head->next;  //将p结点插入到表头
+        L.head->next=p;
+        p=q;
+    }
+}
+//二路归并有序链表A、B
+template <typename T>
+void Merge(LinkList<T>&A,LinkList <T>&B,LinkList<T>& C)
+{
+    LinkNode<T>* p=A.head->next;  //p指向A的首结点
+    LinkNode<T>* q=B.head->next;  //q指向B的首结点
+    LinkNode<T>* r=C.head;  //r指向C的尾结点
+
+    while (p!=NULL && q!=NULL)  //两个链表都没有遍历完
+    {
+        if(p->data<q->data)  //得到较小的结点
+        {
+            r->next=p;
+            r=p;
+            p=p->next;  //插入
+        }
+        else
+        {
+            r->next=q;
+            r=q;
+            q=q->next;
+        }
+    }
+    r->next=NULL;
+    if(p!=NULL) r->next=p;
+    if(q!=NULL) r->next=q;
+}
