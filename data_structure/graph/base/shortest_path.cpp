@@ -108,7 +108,7 @@ void Floyd(MatGraph& g)
             for(int j=0;j<g.n;j++)
                 if(A[i][j]>A[i][k]+A[k][j])
                 {
-                    A[i][j]=A[i][j]+A[k][j];  //修改最短路径
+                    A[i][j]=A[i][k]+A[k][j];  //修改最短路径
                     path[i][j]=path[k][j];
                 }
     }
